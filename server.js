@@ -21,7 +21,7 @@ app.post('/webhook/', function(request, response) {
    const action = dialogflowRequest.queryResult.action;
 
 
-   if ( action === "static.action") {
+   if ( action === "totalStudent.action") {
     return response.json({fulfillmentText:`The total strength is ${membersCount}`});
    }
   console.log(action);

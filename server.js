@@ -31,22 +31,23 @@ app.post('/webhook/', function(request, response) {
   //   }).catch((error) => {
   //     throw new Error(error);
   //   });
-  speech = "Hello there, this reply is from the webhook !! "
-    string = "You are awesome !!"
-    Message ="this is the message"
+  // speech = "Hello there, this reply is from the webhook !! "
+  //   string = "You are awesome !!"
+  //   Message ="this is the message"
 
-    my_result =  {
+  //   my_result =  {
 
-    "fulfillmentText": string,
-     "source": string
-    }
+  //   "fulfillmentText": string,
+  //    "source": string
+  //   }
 
-    res = json.dumps(my_result, indent=4)
+  //   res = json.dumps(my_result, indent=4)
 
-    r = make_response(res)
+  //   r = make_response(res)
 
-    r.headers['Content-Type'] = 'application/json'
-    return r
+  //   r.headers['Content-Type'] = 'application/json'
+  //   return r
+  agent.add("This is from webhook");
 });
 
 // listen for requests :)

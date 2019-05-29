@@ -4,6 +4,9 @@ var app = express();
 var googleSpreadsheet = require('./googleSpreadsheet');
 var dialogflow = require('./dialogflow');
 
+var eschool = require('./eschool');
+const members = eschool.members;
+const membersCount = members.length;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
@@ -17,6 +20,11 @@ app.post('/webhook/', function(request, response) {
   const dialogflowRequest = request.body;
   // An intent's action serves as a mapping mechanism between your intent and a function living in your app.
    const action = dialogflowRequest.queryResult.action;
+
+
+   if ( action === "static.action") {
+    return response.json({fulfillmentText:`The total strength is ${membersCount}`});
+   }
   console.log(action);
   // these 3 variables could come from your intent's parameters !
   // const tabName = 'schoolDemo1';

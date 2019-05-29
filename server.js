@@ -4,8 +4,7 @@ var app = express();
 var googleSpreadsheet = require('./googleSpreadsheet');
 var dialogflow = require('./dialogflow');
 
-var eschool = require('./eschool');
-const members = eschool.members;
+var members = require('./eschool');
 const membersCount = members.length;
 app.use(express.static('public'));
 app.use(bodyParser.json());

@@ -19,18 +19,34 @@ app.post('/webhook/', function(request, response) {
   // const action = dialogflowRequest.queryResult.action;
   
   // these 3 variables could come from your intent's parameters !
-  const tabName = 'schoolDemo1';
-  const startCell = 'A2';
-  const endCell = 'A3';
+  // const tabName = 'schoolDemo1';
+  // const startCell = 'A2';
+  // const endCell = 'A3';
   
-  return googleSpreadsheet.getDataFromSpreadsheet(tabName, startCell, endCell)
-    .then((results) => {
-      response.json(
-        dialogflow.convertFormat(results)
-      );
-    }).catch((error) => {
-      throw new Error(error);
-    });
+  // return googleSpreadsheet.getDataFromSpreadsheet(tabName, startCell, endCell)
+  //   .then((results) => {
+  //     response.json(
+  //       dialogflow.convertFormat(results)
+  //     );
+  //   }).catch((error) => {
+  //     throw new Error(error);
+  //   });
+  speech = "Hello there, this reply is from the webhook !! "
+    string = "You are awesome !!"
+    Message ="this is the message"
+
+    my_result =  {
+
+    "fulfillmentText": string,
+     "source": string
+    }
+
+    res = json.dumps(my_result, indent=4)
+
+    r = make_response(res)
+
+    r.headers['Content-Type'] = 'application/json'
+    return r
 });
 
 // listen for requests :)

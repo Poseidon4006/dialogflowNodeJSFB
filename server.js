@@ -19,7 +19,7 @@ app.post('/', function(request, response) {
   // const action = dialogflowRequest.queryResult.action;
   
   // these 3 variables could come from your intent's parameters !
-  const tabName = 'Class Data';
+  const tabName = 'schoolDemo1';
   const startCell = 'A2';
   const endCell = 'E';
   

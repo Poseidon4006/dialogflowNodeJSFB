@@ -13,7 +13,7 @@ app.get('/', function(request, response) {
 });
 
 // the DialogFlow fulfillment endpoint
-app.post('/', function(request, response) {
+app.post('/webhook/', function(request, response) {
   const dialogflowRequest = request.body;
   // An intent's action serves as a mapping mechanism between your intent and a function living in your app.
   // const action = dialogflowRequest.queryResult.action;
@@ -21,7 +21,7 @@ app.post('/', function(request, response) {
   // these 3 variables could come from your intent's parameters !
   const tabName = 'schoolDemo1';
   const startCell = 'A2';
-  const endCell = 'E';
+  const endCell = 'A3';
   
   return googleSpreadsheet.getDataFromSpreadsheet(tabName, startCell, endCell)
     .then((results) => {
